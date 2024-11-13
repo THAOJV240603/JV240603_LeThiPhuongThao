@@ -40,6 +40,7 @@ public class EmployeeServiceImp implements EmployeeService{
             responseDTO.setEmp_phone(employee.getEmp_phone());
             responseDTO.setEmp_avatar(employee.getEmp_avatar());
             responseDTO.setEmp_status(employee.getEmp_status()?"Đang làm việc" : "Nghỉ việc");
+            responseDTO.setDept_name(employee.getDept_id().getDept_name());
             responseDTOS.add(responseDTO);
         }
         return responseDTOS;

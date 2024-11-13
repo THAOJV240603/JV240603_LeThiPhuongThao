@@ -46,4 +46,14 @@ public class EmployeeController {
         employeeService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    //Tìm kiếm theo tên
+    @GetMapping("/search")
+    public ResponseEntity<?> search(@RequestParam(name = "keyword") String keyword) {
+        List<EmployeeResponseDTO> responseDTOS = employeeService.searchByName(keyword);
+        if (responseDTOS != null) {
+            return new ResponseEntity<>("Không tìm thấy thông tin nhân viên", HttpStatus.OK);
+        }
+        return new ResponseEntity<>(responseDTOS, HttpStatus.OK);
+    }
 }

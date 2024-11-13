@@ -11,5 +11,5 @@ public class DepartmentResponseDTO {
     private Long Dept_id;
     private String Dept_name;
     private String Dept_description;
-    private Boolean Dept_status;
+    private String Dept_status;
 }

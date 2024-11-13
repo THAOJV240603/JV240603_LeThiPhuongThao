@@ -35,15 +35,15 @@ public class DepartmentController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable Long Dept_id, @Valid @RequestBody DepartmentUpdateRequestDTO departmentUpdateRequestDTO) {
-        departmentUpdateRequestDTO.setDept_id(Dept_id);
+    public ResponseEntity<?> update(@PathVariable Long id, @Valid @RequestBody DepartmentUpdateRequestDTO departmentUpdateRequestDTO) {
+        departmentUpdateRequestDTO.setDept_id(id);
         DepartmentResponseDTO responseDTO  = departmentService.update(departmentUpdateRequestDTO);
         return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable Long Dept_id) {
-        departmentService.delete(Dept_id);
+    public ResponseEntity<?> delete(@PathVariable Long id) {
+        departmentService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

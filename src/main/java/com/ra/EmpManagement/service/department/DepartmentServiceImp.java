@@ -30,7 +30,7 @@ public class DepartmentServiceImp implements DepartmentService {
             responseDTO.setDept_id(department.getDept_id());
             responseDTO.setDept_name(department.getDept_name());
             responseDTO.setDept_description(department.getDept_description());
-            responseDTO.setDept_status(department.getDept_status());
+            responseDTO.setDept_status(department.getDept_status()?"Hoạt động":"Không hoạt động") ;
             responseDTOS.add(responseDTO);
         }
         return responseDTOS;
@@ -49,7 +49,7 @@ public class DepartmentServiceImp implements DepartmentService {
                 .Dept_id(departmentNew.getDept_id())
                 .Dept_name(departmentNew.getDept_name())
                 .Dept_description(departmentNew.getDept_description())
-                .Dept_status(departmentNew.getDept_status())
+                .Dept_status(departmentNew.getDept_status()?"Hoạt động":"Không hoạt động")
                 .build();
         return responseDTO;
     }
@@ -69,7 +69,7 @@ public class DepartmentServiceImp implements DepartmentService {
                 .Dept_id(departmentNew.getDept_id())
                 .Dept_name(departmentNew.getDept_name())
                 .Dept_description(departmentNew.getDept_description())
-                .Dept_status(departmentNew.getDept_status())
+                .Dept_status(departmentNew.getDept_status()?"Hoạt động":"Không hoạt động")
                 .build();
         return responseDTO;
     }

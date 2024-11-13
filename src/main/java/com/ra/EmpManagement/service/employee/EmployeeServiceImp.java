@@ -34,12 +34,12 @@ public class EmployeeServiceImp implements EmployeeService{
             responseDTO.setEmp_id(employee.getEmp_id());
             responseDTO.setEmp_name(employee.getEmp_name());
             responseDTO.setEmp_BirthOfDate(employee.getEmp_BirthOfDate());
-            responseDTO.setEmp_sex(employee.getEmp_sex());
+            responseDTO.setEmp_sex(employee.getEmp_sex()?"Nam" : "Nữ");
             responseDTO.setEmp_address(employee.getEmp_address());
             responseDTO.setEmp_email(employee.getEmp_email());
             responseDTO.setEmp_phone(employee.getEmp_phone());
             responseDTO.setEmp_avatar(employee.getEmp_avatar());
-            responseDTO.setEmp_status(employee.getEmp_status());
+            responseDTO.setEmp_status(employee.getEmp_status()?"Đang làm việc" : "Nghỉ việc");
             responseDTOS.add(responseDTO);
         }
         return responseDTOS;
@@ -67,12 +67,12 @@ public class EmployeeServiceImp implements EmployeeService{
                 .Emp_name(employeeNew.getEmp_name())
                 .Emp_BirthOfDate(employeeNew.getEmp_BirthOfDate())
                 .Emp_BirthOfDate(employeeNew.getEmp_BirthOfDate())
-                .Emp_sex(employeeNew.getEmp_sex())
+                .Emp_sex(employeeNew.getEmp_sex()?"Nam" : "Nữ")
                 .Emp_address(employeeNew.getEmp_address())
                 .Emp_email(employeeNew.getEmp_email())
                 .Emp_phone(employeeNew.getEmp_phone())
                 .Emp_avatar(employeeNew.getEmp_avatar())
-                .Emp_status(employeeNew.getEmp_status())
+                .Emp_status(employeeNew.getEmp_status()?"Đang làm việc" : "Nghỉ việc")
                 .Dept_name(employeeNew.getDept_id().getDept_name())
                 .build();
         return responseDTO;
@@ -101,12 +101,12 @@ public class EmployeeServiceImp implements EmployeeService{
                 .Emp_name(employeeNew.getEmp_name())
                 .Emp_BirthOfDate(employeeNew.getEmp_BirthOfDate())
                 .Emp_BirthOfDate(employeeNew.getEmp_BirthOfDate())
-                .Emp_sex(employeeNew.getEmp_sex())
+                .Emp_sex(employeeNew.getEmp_sex()?"Nam" : "Nữ")
                 .Emp_address(employeeNew.getEmp_address())
                 .Emp_email(employeeNew.getEmp_email())
                 .Emp_phone(employeeNew.getEmp_phone())
                 .Emp_avatar(employeeNew.getEmp_avatar())
-                .Emp_status(employeeNew.getEmp_status())
+                .Emp_status(employeeNew.getEmp_status()?"Đang làm việc" : "Nghỉ việc")
                 .Dept_name(employeeNew.getDept_id().getDept_name())
                 .build();
         return responseDTO;
@@ -115,5 +115,26 @@ public class EmployeeServiceImp implements EmployeeService{
     @Override
     public void delete(Long Emp_id) {
         employeeRepository.deleteById(Emp_id);
+    }
+
+    @Override
+    public List<EmployeeResponseDTO> searchByName(String keyword) {
+        List<Employee> employees = employeeRepository.searchByName(keyword);
+        //Java 8
+        List<EmployeeResponseDTO> responseDTOS = employees.stream().map(employee -> {
+            EmployeeResponseDTO responseDTO = new EmployeeResponseDTO();
+            responseDTO.setEmp_id(employee.getEmp_id());
+            responseDTO.setEmp_name(employee.getEmp_name());
+            responseDTO.setEmp_BirthOfDate(employee.getEmp_BirthOfDate());
+            responseDTO.setEmp_sex(employee.getEmp_sex()?"Nam" : "Nữ");
+            responseDTO.setEmp_address(employee.getEmp_address());
+            responseDTO.setEmp_email(employee.getEmp_email());
+            responseDTO.setEmp_phone(employee.getEmp_phone());
+            responseDTO.setEmp_avatar(employee.getEmp_avatar());
+            responseDTO.setEmp_status(employee.getEmp_status()?"Đang làm việc" : "Nghỉ việc");
+            responseDTO.setDept_name(employee.getDept_id().getDept_name());
+            return responseDTO;
+        }).toList();
+        return responseDTOS;
     }
 }

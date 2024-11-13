@@ -11,4 +11,6 @@ public interface EmployeeService {
     EmployeeResponseDTO create(EmployeeRequestDTO employeeRequestDTO);
     EmployeeResponseDTO update(EmployeeUpdateRequestDTO employeeUpdateRequestDTO);
     void delete(Long Emp_id);
+    //Tìm kiếm theo tên
+    List<EmployeeResponseDTO> searchByName(String keyword);
 }

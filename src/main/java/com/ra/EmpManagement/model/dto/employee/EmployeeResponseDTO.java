@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Setter
 @Builder
 public class EmployeeResponseDTO {
-    private int Emp_id;
+    private Long Emp_id;
     private String Emp_name;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private LocalDate Emp_BirthOfDate;
@@ -22,5 +22,5 @@ public class EmployeeResponseDTO {
     private String Emp_phone;
     private String Emp_avatar;
     private Boolean Emp_status;
-    private Department Dept_name;
+    private String Dept_name;
 }

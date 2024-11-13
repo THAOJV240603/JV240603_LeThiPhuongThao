@@ -15,7 +15,7 @@ import java.time.LocalDate;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Emp_id;
+    private Long Emp_id;
     @Column(name = "emp_name", length = 100, nullable = false)
     private String Emp_name;
     @Column(name = "emp_BirthOfDate", nullable = false)
@@ -34,6 +34,6 @@ public class Employee {
     private Boolean Emp_status;
 
     @ManyToOne
-    @JoinColumn(name = "deptId", referencedColumnName = "Dept_id")
+    @JoinColumn(name = "dept_id", referencedColumnName = "Dept_id")
     private Department Dept_id;
 }

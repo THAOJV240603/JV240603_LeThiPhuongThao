@@ -23,5 +23,5 @@ public class EmployeeRequestDTO {
     private String Emp_phone;
     private String Emp_avatar;
     private Boolean Emp_status;
-    private Department Dept_id;
+    private Long Dept_id;
 }

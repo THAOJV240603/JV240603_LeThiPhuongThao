@@ -10,8 +10,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class DepartmentUpdateRequestDTO {
-    private int Dept_id;
+    private Long Dept_id;
     private String Dept_name;
     private String Dept_description;
-    private String Dept_status;
+    private Boolean Dept_status;
 }

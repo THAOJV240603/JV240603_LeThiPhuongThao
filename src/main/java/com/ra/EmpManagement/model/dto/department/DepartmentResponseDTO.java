@@ -8,8 +8,8 @@ import lombok.*;
 @Setter
 @Builder
 public class DepartmentResponseDTO {
-    private int Dept_id;
+    private Long Dept_id;
     private String Dept_name;
     private String Dept_description;
-    private String Dept_status;
+    private Boolean Dept_status;
 }

@@ -9,5 +9,5 @@ import lombok.*;
 public class DepartmentRequestDTO {
     private String Dept_name;
     private String Dept_description;
-    private String Dept_status;
+    private Boolean Dept_status;
 }

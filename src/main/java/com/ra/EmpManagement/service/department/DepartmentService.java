@@ -10,5 +10,5 @@ public interface DepartmentService {
     List<DepartmentResponseDTO> findAll();
     DepartmentResponseDTO create(DepartmentRequestDTO departmentRequestDTO);
     DepartmentResponseDTO update(DepartmentUpdateRequestDTO departmentUpdateRequestDTO);
-    void delete(Integer Dept_id);
+    void delete(Long Dept_id);
 }
